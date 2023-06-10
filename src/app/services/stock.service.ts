@@ -15,4 +15,9 @@ export class StockService {
   getStocks(): Observable<Stock[]> {
     return this.httpClient.get<Stock[]>(this.apiUrl);
   }
+
+  updateStockPrices() {
+    const url = this.apiUrl + '/shuffleStockPrices'
+    return this.httpClient.get(url);
+  }
 }
