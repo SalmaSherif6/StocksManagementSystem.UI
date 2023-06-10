@@ -1,0 +1,44 @@
+<h2>Order</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person Name</th>
+      <th>Stock Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.personName }}</td>
+      <td>{{ order.stock?.name }}</td>
+      <td>{{ order.price }}</td>
+      <td>{{ order.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Create New Order</h3>
+
+<div>
+  <label for="personName">Person Name:</label>
+  <input type="text" id="personName" [(ngModel)]="personName" />
+</div>
+
+<div>
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" [(ngModel)]="quantity" />
+</div>
+
+<div>
+  <label for="price">Price:</label>
+  <input type="number" id="price" [(ngModel)]="price" />
+</div>
+
+<div>
+  <label for="stockId">Stock Id:</label>
+  <input type="number" id="stockId" [(ngModel)]="stockId" />
+</div>
+
+<button (click)="createOrder(stockId, price, quantity, personName)">Create</button>
